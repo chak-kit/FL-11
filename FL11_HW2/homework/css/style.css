@@ -32,6 +32,11 @@
     section > div > h2 {
         text-align: center;
         color: lightskyblue;
+        font-weight: 300;
+    }
+
+    h2.tm-section-title {
+        text-transform: uppercase;
     }
 
     section > div > ol > li {
@@ -109,7 +114,6 @@
         align-items: center;
     }
 
-
     section::before {
         content: '';
         display: block;
@@ -117,7 +121,6 @@
         border-left: 20px solid lightskyblue;
         border-top: 20px solid lightskyblue;
     }
-
 
     .heading > div > h2 {
         color: lightskyblue;
