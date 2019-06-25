@@ -1,0 +1,233 @@
+$p-font-sizes: (
+  extra-small : 8px,
+  small : 12px,
+  base : 16px,
+  medium : 18px,
+  large: 22px);
+
+$font-weights: (
+  regular: 400,
+  medium: 600,
+  bold: 700);
+
+@mixin pseudo($display: block, $bg: $underlineBackgroundColor, $content: ''){
+  content: $content;
+  display: $display;
+  background: $bg;
+}
+@mixin button() {
+  width: fit-content;
+  font-size: map-get($p-font-sizes, small);
+  color: white;
+  padding: 10px 33px;
+  background: $buttonBackground;
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin flexbox() {
+  display: flex
+}
+@mixin flex-direction ($direction) {
+  flex-direction: $direction
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-width: 960px;
+  max-width: 1170px;
+  position: relative;
+  margin: 0 auto;
+  background: $contentBackground;
+  color: $contentColor;
+  font-family: $fontStack;
+  line-height: 1.2;
+}
+
+main{
+  margin: 0 auto;
+  width: 960px;
+  padding: 0 15px;
+}
+
+.header-wrap{
+  @extend main;
+  @extend .section;
+}
+
+.header{
+  background: $headerBackground;
+  background-size: cover;
+  height: 550px;
+  width: 100%;
+  border-bottom-right-radius: 440px 250px;
+}
+
+.header_heading{
+  font-size: 50px;
+  font-weight: map-get($font-weights, medium);
+  width: 400px;
+  margin: 40px 0;
+  &:after{
+    @include pseudo;
+    height: 20px;
+    width: 51%;
+    margin-top: -24px;
+  }
+}
+
+.header_text, .footer-cr{
+  @extend .section_card_text;
+  white-space: pre-line;
+}
+
+.landing-logo{
+  img{
+    height: 30px;
+    padding-right: 10px;
+  }
+}
+
+.landing-logo{
+  @include flexbox;
+  margin-top: 20px;
+  p{
+    margin: 0;
+    font-size: map-get($p-font-sizes, medium);
+    span{
+      display: block;
+      font-size: map-get($p-font-sizes, extra-small);
+      text-align: center;
+    }
+  }
+}
+
+.header_button{
+  @include button;
+  margin-top: 40px;
+}
+
+.section_card_wrap{
+  @include flexbox;
+  justify-content: space-between;
+}
+
+.section{
+  @include flexbox;
+  @include flex-direction(column)
+}
+
+.section_card{
+  background: $fontColor;
+  padding: 15px;
+  flex-basis: 300px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  img{
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+.section_card + .section_card{
+  margin-left: 15px
+}
+
+.section_text{
+  font-size: 33px;
+  font-weight: map-get($font-weights, medium);
+  text-align: center;
+  margin: 40px 0;
+  &:after{
+    height: 10px;
+    width: 16%;
+    margin-top: -15px;
+    margin-left: 472px;
+    @include pseudo;
+  }
+}
+
+.section_card_heading{
+  font-size: map-get($p-font-sizes, large);
+  font-weight: map-get($font-weights, medium);
+  position: relative;
+  width: fit-content;
+  z-index: 1;
+  margin: 10px auto;
+  text-align: start;
+  span{
+    height: 10px;
+    width: 100%;
+    margin-top: -10px;
+    background: $underlineBackgroundColor;  
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.section_card_text, .section_banner_text{
+  font-size: map-get($p-font-sizes, small);
+  display: contents;
+  font-family: $fontParagraphs;
+  opacity: 0.8;
+}
+
+.section_banner{
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 820px;
+  height: 110px;
+  background: $colorGradient;
+  z-index: 1;
+  @include flexbox;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+.footer, .section_banner_text{
+  color: white;
+}
+
+.footer{
+  margin-top: 200px;
+  background: $fontColor;
+}
+.footer-wrap{
+  @extend main;
+  @extend .section_card_wrap;
+  height: 200px;
+  align-items: flex-end;
+  padding-bottom: 45px;
+  .footer_text{
+    @extend .section_card_text;
+    width: 250px;
+    display: block;
+    line-height: 1.5;
+  }
+}
+.section_banner_button{
+  @include button;
+}
+
+.section_banner_heading{
+  @extend .section_card_heading;
+  &:before{
+    position: absolute;
+    @include pseudo;
+    width: 47px;
+    height: 10px;
+    top: 15px;
+    left: 84px;
+    z-index: -1;
+  }
+}
+
