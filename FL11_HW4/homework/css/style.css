@@ -113,7 +113,7 @@ html, body {
     padding: 15px;
 }
 .img__likes{
-    padding: 10px;
+    padding: 8px;
     border: 2px solid #fff;
     position: absolute;
     top: 0;
@@ -133,7 +133,7 @@ html, body {
     position: absolute;
     bottom: 0;
     left: 0;
-    margin: 20px;
+    margin: 15px;
 }
 .first-articles__content{
     margin-left: 70px;
@@ -154,17 +154,13 @@ html, body {
     content: '';
     position: absolute;
     width: 100%;
-    height: 221px;
+    height: 220px;
     clip-path: polygon(0 0, 0 100%, 100% 100%);
     display: block;
     background: #F4F4F4;
 }
 .section-content, .subscribe-section{
     background: #F4F4F4;
-}
-.article__wrap{
-    padding-top: 50px;
-    padding-bottom: 60px;
 }
 .section-text{
     position: relative;
@@ -173,12 +169,12 @@ html, body {
     justify-content: space-between;
 }
 .page-article{
-    position: relative;
-    color: #000000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-weight: 100;
     font-size: 22px;
-    margin-top: 50px;
-    text-align: center;
+    margin-top: -25px;
 }
 .section-header{
     height: 220px;
@@ -195,6 +191,7 @@ html, body {
 .right_section-text{
    flex-basis: 460px;
     line-height: 1.3;
+    color: #F0F0F0;
 }
 .bold__text{
     font-weight: 700;
@@ -225,8 +222,10 @@ html, body {
     padding: 10px;
     width: 80%;
     margin: 0 auto;
+    background: rgba(9, 119, 116, 0.8);
+}
+.explore > a{
     color: #E8E8E8;
-    background: rgba(9, 119, 116, 0.8) ;
 }
 .button__wrap, .next__section-content{
     margin-top: 60px;
@@ -235,16 +234,15 @@ html, body {
 }
 .loading{
     padding: 16px 120px;
-
 }
 .new-page__container{
     padding: 0 15px;
 }
-.subscribe-section{
+.subscribe-section, .article__wrap{
     padding: 40px 0;
 }
 .subscribe__block{
-    margin: 40px 0;
+    margin-top: 30px;
     text-align: right;
 }
 input[type=email]{
@@ -266,8 +264,9 @@ input[type=submit], .loading{
     background: #097774;
     color: #FFFFFF;
     font-size: 16px;
+    border: none;
 }
-.footer-nav__item > a, input::placeholder {
+.footer-nav__item > a, input[type=email]::placeholder {
     color: #000000;
 }
 .footer-nav__item{
@@ -278,4 +277,9 @@ input[type=submit], .loading{
 }
 .footer__logo{
     color: #9E9E9E;
+}
+input[type=email]:focus,
+input[type=submit]:focus,
+.loading{
+    outline: none;
 }

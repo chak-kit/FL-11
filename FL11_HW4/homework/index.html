@@ -20,10 +20,10 @@
                 </div>
                 <ul class="header-nav">
                     <li class="nav__item">
-                        <a class="nav__link" href=""> Login </a>
+                        <a class="nav__link" href="/"> Login </a>
                     </li>
                     <li class="nav__item">
-                        <a class="nav__link" href=""> Signup </a>
+                        <a class="nav__link" href="/"> Signup </a>
                     </li>
                 </ul>
             </div>
@@ -36,13 +36,13 @@
             <nav class="main-nav">
                 <ul class="main-nav__items">
                     <li class="main-nav__item">
-                        <a class="main-nav_link" href="#"> Careers </a>
+                        <a class="main-nav_link" href="/"> Careers </a>
                     </li>
                     <li class="main-nav__item">
-                        <a class="main-nav__link" href="#"> About </a>
+                        <a class="main-nav__link" href="/"> About </a>
                     </li>
                     <li class="main-nav__item">
-                        <a class="main-nav__link" href="#"> Show More </a>
+                        <a class="main-nav__link" href="/"> Show More </a>
                     </li>
                 </ul>
             </nav>
@@ -50,7 +50,7 @@
     </header>
 
     <main class="section">
-        <section class="section-header">
+        <div class="section-header">
             <div class="page__container">
                 <div class="section-text">
                     <p class="left_section-text"> Lorem ipsum dolor, consectetur adipiscing.
@@ -63,12 +63,12 @@
                         massa quis enim.
                     </p>
                 </div>
-                <h3 class="page-article"> Read some of our <span class="bold__text">featured articles</span></h3>
             </div>
-        </section>
+        </div>
 
         <section class="section-content">
             <div class="page__container">
+                <h3 class="page-article"> Read some of our <span class="bold__text">featured articles</span></h3>
                 <div class="article__wrap">
 
                     <div class="page__content">
@@ -130,6 +130,7 @@
                 </div>
             </div>
         </section>
+
         <section class="next__section-content">
             <div class="page__container">
                 <div class="photos-content">
@@ -142,7 +143,7 @@
                             <div class="img__likes">
                                 <span class="img__num"> 10 </span>
                             </div>
-                            <h4 class="explore"><a href="#"> Explore </a></h4>
+                            <h4 class="explore"><a href="/"> Explore </a></h4>
                             <p class="img__description">January 18 Greece </p>
                         </div>
                     </div>
@@ -154,7 +155,7 @@
                             <div class="img__likes">
                                 <span class="img__num"> 35 </span>
                             </div>
-                            <h4 class="explore"><a href="#"> Explore </a></h4>
+                            <h4 class="explore"><a href="/"> Explore </a></h4>
                             <p class="img__description">June 18 Italy</p>
                         </div>
                     </div>
@@ -166,7 +167,7 @@
                             <div class="img__likes">
                                 <span class="img__num"> 199 </span>
                             </div>
-                            <h4 class="explore"><a href="#"> Explore </a></h4>
+                            <h4 class="explore"><a href="/"> Explore </a></h4>
                             <p class="img__description">December 11 USA</p>
                         </div>
                     </div>
@@ -178,48 +179,48 @@
                             <div class="img__likes">
                                 <span class="img__num"> 88 </span>
                             </div>
-                            <h4 class="explore"><a href="#"> Explore </a></h4>
+                            <h4 class="explore"><a href="/"> Explore </a></h4>
                             <p class="img__description">May 25 Germany</p>
                         </div>
                     </div>
                 </div>
                 <div class="button__wrap">
-                    <button class="loading">Load news</button>
+                    <button type="button" class="loading">Load news</button>
                 </div>
             </div>
         </section>
     </main>
-        <aside class="subscribe-section">
-            <div class="new-page__container">
-                <div class="subscribe__text">
-                    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed do eismod tempor incididunt
-                        ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                </div>
-                <div class="subscribe__block">
-                    <form action="/" class="form">
-                        <label for="email"> Subscribe to our <span class="bold__text"> newsletter </span></label>
-                        <input type="email" id="email" name="email" placeholder="Enter your e-mail">
-                        <input type="submit" value="Subscribe">
-                    </form>
-                </div>
-
+    <aside class="subscribe-section">
+        <div class="new-page__container">
+            <div class="subscribe__text">
+                <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed do eismod tempor incididunt
+                    ut labore et dolore magna aligua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                </p>
             </div>
-        </aside>
+            <div class="subscribe__block">
+                <form action="/" class="form">
+                    <label for="email"> Subscribe to our <span class="bold__text"> newsletter </span></label>
+                    <input type="email" id="email" name="email" placeholder="Enter your e-mail">
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+
+        </div>
+    </aside>
 
     <footer>
         <div class="footer-page__container">
             <div class="footer__content">
-                <span class="footer__logo">&copy; 2019 Epam</span>
+                <span class="footer__logo"> &copy; 2019 Epam</span>
                 <nav class="footer-navigation">
                     <ul class="footer__nav__items">
                         <li class="footer-nav__item"><a href="#">Home </a></li>
-                        <li class="footer-nav__item"><a href="#">About </a></li>
-                        <li class="footer-nav__item"><a href="#">Shop </a></li>
-                        <li class="footer-nav__item"><a href="#">Vacancies </a></li>
+                        <li class="footer-nav__item"><a href="/">About </a></li>
+                        <li class="footer-nav__item"><a href="/">Shop </a></li>
+                        <li class="footer-nav__item"><a href="/">Vacancies </a></li>
                     </ul>
                 </nav>
             </div>
