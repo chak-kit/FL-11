@@ -296,7 +296,7 @@ header, .aside__content {
 
 @media only screen and (min-device-width: 769px) and (max-device-width: 1399px) {
     .container {
-        max-width: 1400px;
+        max-width: 1399px;
     }
 
     .post__title, .logo, time > span {
@@ -361,6 +361,18 @@ header, .aside__content {
 
     .aside__wrap {
         flex-basis: 38%;
+    }
+
+    .aside__block {
+        padding: 1rem;
+    }
+
+    .nav__link, .post__description, .aside__description, .footer__item {
+        font-size: 1.4rem;
+    }
+
+    .post__title, .logo, time > span {
+        font-size: 3rem;
     }
 
     .post__content {
@@ -428,12 +440,15 @@ header, .aside__content {
     .main__wrap {
         flex-direction: column;
     }
-.header-logo{
-    padding: 9rem 0 6rem 0;
-}
+
+    .header-logo {
+        padding: 9rem 0 6rem 0;
+    }
+
     .section__wrap {
         margin: 0;
     }
+
     .post__title, .logo, time > span {
         font-size: 4rem;
     }
