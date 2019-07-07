@@ -1,32 +1,42 @@
-const labels = 'a, b, c'.split(',');
-const num = [];
-let userInput;
+const labels = 'a,b,c'.split(',');
+const a = 0, b = 1, c = 2;
+const minSideValue = 0;
+const sideCount = 3;
+const sideValues = [];
 
 do {
-    userInput = prompt(`Enter ${labels[num.length]}: `);
+  let userInput = prompt(`Enter ${labels[sideValues.length]}: `);
 
-    if (userInput === '' || isNaN(userInput)) {
-        alert('It was not a number')
-    } else if (userInput <= 0) {
-        alert('Number must be greater than 0')
+  if (userInput === null || userInput.trim()=== '' || isNaN(userInput)) {
+    alert('It was not a number');
+    break;
+  }
+
+  const sideValue = Number(userInput);
+  if (sideValue <= minSideValue) {
+    alert('Value of triangle side must be greater than 0');
+    break;
+  }
+
+  sideValues.push(sideValue);
+} while (sideValues.length < sideCount);
+
+if (sideValues.length === sideCount) {
+  let isTriangle = sideValues[a] + sideValues[b] > sideValues[c]
+                && sideValues[a] + sideValues[c] > sideValues[b]
+                && sideValues[b] + sideValues[c] > sideValues[a];
+
+  if (isTriangle) {
+    if (sideValues[a] === sideValues[b] && sideValues[b] === sideValues[c]) {
+      console.log('Equivalent triangle');
+    } else if (sideValues[a] !== sideValues[b] &&
+                sideValues[a] !== sideValues[c] &&
+                sideValues[b] !== sideValues[c]) {
+      console.log('Normal triangle');
     } else {
-        num.push(Number(userInput));
+      console.log('Isosceles triangle');
     }
-
-} while (num.length <= 2 && userInput !== null);
-
-let itsTriangle = num[0] + num[1] > num[2]
-    && num[1] + num[2] > num[0]
-    && num[2] + num[1] > num[0];
-
-if (itsTriangle) {
-    if (num[0] === num[1] && num[1] === num[2] ) {
-        console.log('Equivalent triangle');
-    } else if (num[0] !== num[1] && num[1] !== num[2] && num[2] !== num[0]) {
-        console.log('Normal triangle');
-    } else {
-        console.log('Isosceles triangle');
-    }
-} else {
+  } else {
     console.log('Triangle doesn’t exist');
+  }
 }
