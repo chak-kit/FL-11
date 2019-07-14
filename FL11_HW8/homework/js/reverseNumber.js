@@ -1,3 +1,5 @@
+const ten = 10;
+
 function reverseNumber(number) {
     let reversed = '';
     let multiplier = 1;
@@ -8,8 +10,8 @@ function reverseNumber(number) {
     }
 
     while (number > 0) {
-        reversed += number % 10;
-        number = Math.floor(number / 10);
+        reversed += number % ten;
+        number = Math.floor(number / ten);
     }
 
     return multiplier * reversed;
