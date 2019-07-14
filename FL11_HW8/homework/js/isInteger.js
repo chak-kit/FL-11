@@ -1,5 +1,3 @@
-function isInteger(number) {
-    // return Number.isSafeInteger(number);
-    return number % 1 === 0
-}
+const isInteger = number => !(number % 1);
+
 isInteger(5);

@@ -1,4 +1,3 @@
-function isBigger(a, b) {
-    return a > b;
-}
-isBigger(5,-1);
+const isBigger = (a, b) => a > b;
+
+isBigger(5, -1);

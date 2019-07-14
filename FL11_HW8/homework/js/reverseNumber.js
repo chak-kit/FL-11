@@ -1,14 +1,17 @@
-function reverseNumber(num) {
-    let result = '';
-    let minus = 1;
-    if (num < 0) {
-        minus = -1;
-        num = -num;
+function reverseNumber(number) {
+    let reversed = '';
+    let multiplier = 1;
+
+    if (number < 0) {
+      number = -number;
+      multiplier = -1;
     }
-    while (num>0) {
-        result = result + (num % 10);
-        num = Math.floor(num / 10);
+
+    while (number > 0) {
+        reversed += number % 10;
+        number = Math.floor(number / 10);
     }
-    return result * minus;
+
+    return multiplier * reversed;
 }
 reverseNumber(-456);
