@@ -1,19 +1,13 @@
 const ten = 10;
 
 function reverseNumber(number) {
-    let reversed = '';
-    let multiplier = 1;
+  let reversed = 0;
+  while (number) {
+    reversed = reversed * ten + number % ten;
+    number = Math.trunc(number / ten);
+  }
 
-    if (number < 0) {
-      number = -number;
-      multiplier = -1;
-    }
-
-    while (number > 0) {
-        reversed += number % ten;
-        number = Math.floor(number / ten);
-    }
-
-    return multiplier * reversed;
+  return reversed;
 }
+
 reverseNumber(-456);
