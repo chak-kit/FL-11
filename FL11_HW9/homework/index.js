@@ -65,7 +65,6 @@ function filterArray(arr, func) {
         filtered.push(func(el));
     });
 
-
     let result = [];
     for (let i = 0; i < filtered.length; i++) {
         if (filtered[i]) {
@@ -110,7 +109,7 @@ function daysBetween(date1, date2) {
 console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
 
 //8
-let data = [
+const data = [
     {
         '_id': '5b5e3168c6bf40f2c1235cd6',
         'index': 0,
@@ -146,14 +145,15 @@ let data = [
 ];
 
 function getAmountOfAdultPeople(data) {
-    let peopleYears = [];
-    let data2 = new Date();
-    for (let i = 0; i < data.length; i++) {
-        let data1 = new Date(data[i][' birthday ']);
+
+    let adults = filterArray(data, function (el) {
+        let data2 = new Date();
+        let data1 = new Date(el[' birthday ']);
         let yearsBetween = daysBetween(data1, data2);
-        peopleYears.push(Math.floor(yearsBetween / 31 / 12));
-    }
-    console.log(peopleYears);
+        let peopleYears = Math.floor(yearsBetween / 31 / 12);
+        return peopleYears > 18;
+    });
+    return adults.length;
 }
 
 console.log(getAmountOfAdultPeople(data));
