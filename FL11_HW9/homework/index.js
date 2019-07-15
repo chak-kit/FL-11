@@ -171,3 +171,16 @@ function keys(params) {
 }
 
 console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
+
+//10
+function values(args){
+    const result = [];
+    for (let key in args) {
+        if (args.hasOwnProperty(key)) {
+            result.push(args[key]);
+        }
+    }
+    return result;
+}
+
+console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
