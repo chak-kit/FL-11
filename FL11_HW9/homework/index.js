@@ -157,3 +157,17 @@ function getAmountOfAdultPeople(data) {
 }
 
 console.log(getAmountOfAdultPeople(data));
+
+//9
+function keys(params) {
+    let result = [];
+    for (let key in params) {
+        if (params.hasOwnProperty(key)) {
+            result.push(key)
+        }
+
+    }
+    return result
+}
+
+console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
