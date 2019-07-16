@@ -1,3 +1,9 @@
+const one = 1;
+const two = 2;
+const three = 3;
+const five = 5;
+const eight = 8;
+
 //0
 function getNumbers(str) {
   const result = [];
@@ -11,12 +17,13 @@ function getNumbers(str) {
   return result;
 }
 
-getNumbers('n1um3ber95');
+console.log(getNumbers('n1um3ber95'));
 
 //1
 function findTypes() {
   let result = {};
   for (let argument of arguments) {
+
     let argumentType = typeof argument;
     if (result[argumentType]) {
       result[argumentType]++
@@ -27,7 +34,7 @@ function findTypes() {
   return result;
 }
 
-findTypes('number', undefined, null);
+console.log(findTypes('number', undefined, null, '9'));
 
 //2
 function executeforEach(arr, func) {
@@ -36,8 +43,8 @@ function executeforEach(arr, func) {
   }
 }
 
-executeforEach([1, 0], function (el) {
-    console.log(el)
+executeforEach([one, two, three], function (el) {
+  console.log(el)
 });
 
 //3
@@ -51,10 +58,9 @@ function mapArray(arr, func) {
   return result;
 }
 
-// let res = mapArray([2, 5, 8], function (el) {
-//     return el + 3
-// });
-// console.log(res);
+console.log(mapArray([two, five, eight], function (el) {
+  return el + three;
+}));
 
 //4
 function filterArray(arr, func) {
@@ -74,10 +80,9 @@ function filterArray(arr, func) {
   return result;
 }
 
-//
-// console.log(filterArray([2, 5, 8], function (el) {
-//     return el > 3
-// }));
+console.log(filterArray([two, five, eight], function (el) {
+  return el > three;
+}));
 
 // 5
 function showFormattedDate(date) {
