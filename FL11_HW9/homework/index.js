@@ -26,8 +26,8 @@ function findTypes() {
   let result = {};
 
   for (let argument of arguments) {
-
     let argumentType = typeof argument;
+
     if (result[argumentType]) {
       result[argumentType]++
     } else {
@@ -68,10 +68,9 @@ console.log(mapArray([two, five, eight], function (el) {
 
 //4
 function filterArray(arr, func) {
-  const filtered = [];
-
   // check what elements have passed
   // filter function
+  const filtered = [];
   executeforEach(arr, function (el) {
     filtered.push(func(el));
   });
@@ -170,6 +169,7 @@ function getAmountOfAdultPeople(data) {
 
     return personYears > adultYears;
   });
+
   return adults.length;
 }
 
