@@ -7,6 +7,7 @@ const eight = 8;
 //0
 function getNumbers(str) {
   const result = [];
+
   for (let char of str) {
     let number = parseInt(char);
 
@@ -14,6 +15,7 @@ function getNumbers(str) {
       result.push(number);
     }
   }
+
   return result;
 }
 
@@ -22,6 +24,7 @@ console.log(getNumbers('n1um3ber95'));
 //1
 function findTypes() {
   let result = {};
+
   for (let argument of arguments) {
 
     let argumentType = typeof argument;
@@ -31,6 +34,7 @@ function findTypes() {
       result[argumentType] = 1;
     }
   }
+
   return result;
 }
 
@@ -66,10 +70,13 @@ console.log(mapArray([two, five, eight], function (el) {
 function filterArray(arr, func) {
   const filtered = [];
 
+  // check what elements have passed
+  // filter function
   executeforEach(arr, function (el) {
     filtered.push(func(el));
   });
 
+  // return only filtered elements
   let result = [];
   for (let i = 0; i < filtered.length; i++) {
     if (filtered[i]) {
@@ -102,17 +109,15 @@ function canConvertToDate(dateString) {
 }
 
 console.log(canConvertToDate('2016-13-18T00:00:00'));
-console.log(canConvertToDate('2016-03-18T00:00:00'));
 
 //7
 function daysBetween(date1, date2) {
   const milliseconds = 1000;
   const secondsInHour = 3600;
   const hoursInDay = 24;
+  const millisecondsInDay = milliseconds * secondsInHour * hoursInDay;
 
-  const dayInMilliseconds = milliseconds * secondsInHour * hoursInDay;
-
-  return Math.round((date2.getTime() - date1.getTime()) / dayInMilliseconds);
+  return Math.round((date2.getTime() - date1.getTime()) / millisecondsInDay);
 }
 
 console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
@@ -173,12 +178,13 @@ console.log(getAmountOfAdultPeople(data));
 //9
 function keys(params) {
   let result = [];
+
   for (let key in params) {
     if (params.hasOwnProperty(key)) {
-      result.push(key)
+      result.push(key);
     }
-
   }
+
   return result
 }
 
@@ -187,11 +193,13 @@ console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
 //10
 function values(args) {
   const result = [];
+
   for (let key in args) {
     if (args.hasOwnProperty(key)) {
       result.push(args[key]);
     }
   }
+
   return result;
 }
 
