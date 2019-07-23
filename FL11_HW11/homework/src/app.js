@@ -1,9 +1,9 @@
+const maxLength = 10;
+let itemCount = 1;
 let rootNode = document.getElementById('root');
 let add = document.getElementsByClassName('add')[0];
 let input = document.querySelector("input[type='text']");
 let box = document.getElementsByClassName('box')[0];
-let itemCount = 1;
-const maxLength = 10;
 
 add.onclick = function () {
   const newTodo = input.value;
@@ -17,6 +17,7 @@ function create(newTodo) {
   if (itemCount > maxLength) {
     add.disabled = true;
     input.disabled = true;
+
     let notifications = document.createElement('p');
     notifications.innerText = 'Maximum item per list are created!';
     box.insertBefore(notifications, input)
@@ -51,18 +52,15 @@ function create(newTodo) {
     listItem.appendChild(editItem);
     listItem.appendChild(spanPen);
     listItem.appendChild(spanDelete);
-
     rootNode.appendChild(listItem);
 
-    listenDeleteTodo(spanDelete);
+    spanDelete.addEventListener('click', (event) => {
+      spanDelete.parentElement.remove();
+      event.stopPropagation();
+    });
 
-    checkBox.onclick = function () {
-      return checkBox.checked
-    };
-
-    spanPen.onclick = function () {
-      return editTask(spanPen, editItem, listItem, label, checkBox)
-    };
+    checkBox.onclick = () => checkBox.checked;
+    spanPen.onclick = () => editTask(spanPen, editItem, listItem, label, checkBox);
   }
 
 }
@@ -70,13 +68,6 @@ function create(newTodo) {
 input.addEventListener('change', () => {
   add.disabled = input.value === '';
 });
-
-function listenDeleteTodo(element) {
-  element.addEventListener('click', (event) => {
-    element.parentElement.remove();
-    event.stopPropagation();
-  });
-}
 
 function editTask(spanPen, editItem, listItem, label, checkBox) {
   spanPen.style.display = 'none';
@@ -92,13 +83,12 @@ function editTask(spanPen, editItem, listItem, label, checkBox) {
   }
   listItem.classList.toggle('editMode');
 
-  button.onclick = function () {
+  button.onclick = () => {
     editItem.style.display = 'none';
     label.style.display = 'inline-block';
     button.style.display = 'none';
     checkBox.style.display = 'inline-block';
     spanPen.style.display = 'inline-block';
     label.innerHTML = editItem.value;
-
-  }
+  };
 }
