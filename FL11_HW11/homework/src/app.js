@@ -60,7 +60,7 @@ function create(newTodo) {
     });
 
     checkBox.onclick = () => checkBox.checked;
-    spanPen.onclick = () => editTask(spanPen, editItem, listItem, label, checkBox);
+    spanPen.onclick = () => editTask(spanPen, editItem, listItem, label, checkBox, spanDelete);
   }
 
 }
@@ -69,10 +69,19 @@ input.addEventListener('change', () => {
   add.disabled = input.value === '';
 });
 
-function editTask(spanPen, editItem, listItem, label, checkBox) {
+function editTask(spanPen, editItem, listItem, label, checkBox, spanDelete) {
   spanPen.style.display = 'none';
   checkBox.style.display = 'none';
+  spanDelete.style.display = 'none';
+
   let button = document.createElement('button');
+  let iconSpan = document.createElement('span');
+  let iconSave = document.createElement('i');
+  iconSave.classList.add('material-icons', 'saveTxt');
+  let spanTxt = document.createTextNode('save');
+  iconSave.appendChild(spanTxt);
+  iconSpan.appendChild(iconSave);
+  button.appendChild(iconSpan);
   listItem.appendChild(button);
 
   let containsClass = listItem.classList.contains('editMode');
@@ -89,6 +98,7 @@ function editTask(spanPen, editItem, listItem, label, checkBox) {
     button.style.display = 'none';
     checkBox.style.display = 'inline-block';
     spanPen.style.display = 'inline-block';
+    spanDelete.style.display = 'inline-block';
     label.innerHTML = editItem.value;
   };
 }

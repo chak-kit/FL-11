@@ -19,7 +19,7 @@ body {
 }
 input[type='text']{
     width: 800px;
-    height: 40px;
+    height: 30px;
     padding: 20px;
     font-size: 16px;
 
@@ -40,11 +40,19 @@ input[type='text']{
     padding-bottom: 40px;
     border-bottom: 4px solid lightblue;
 }
-.plus{
+.plus, .saveTxt{
     font-size: 35px;
     margin-left: 20px;
+    opacity: 0.8;
+    cursor: context-menu;
+}
+.pen, .delete-box{
+    cursor: context-menu;
 }
 .add{
+    display: contents;
+}
+button{
     display: contents;
 }
 .check-box{
@@ -57,6 +65,7 @@ li input[type='text']{
 }
 .editMode input[type='text']{
     display: inline-block;
+    width: 400px;
 }
 label{
     margin: 0 10px 0 10px;
