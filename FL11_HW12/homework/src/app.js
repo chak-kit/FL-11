@@ -1,6 +1,6 @@
 const isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 const timeOut = 2000;
-const notFoundfIndex = -1;
+const notFoundIndex = -1;
 
 const rootNode = document.getElementById('root');
 const heading = document.createElement('h1');
@@ -115,7 +115,7 @@ function mainPage() {
           let firstDoneIndex = todoItems.findIndex(value => value.isDone);
 
           //no sense to move, element is already in the right position
-          if (firstDoneIndex !== notFoundfIndex && firstDoneIndex < currentIndex) {
+          if (firstDoneIndex !== notFoundIndex && firstDoneIndex < currentIndex) {
             moveElement(todoItems, currentIndex, firstDoneIndex);
           }
         }
@@ -225,7 +225,7 @@ function addItem(description) {
   let currentIndex = todoItems.length - 1;
   let firstDoneIndex = todoItems.findIndex(value => value.isDone);
   //no sense to move, element is already in the right position
-  if (firstDoneIndex !== notFoundfIndex && firstDoneIndex < currentIndex) {
+  if (firstDoneIndex !== notFoundIndex && firstDoneIndex < currentIndex) {
     moveElement(todoItems, currentIndex, firstDoneIndex);
   }
 
@@ -244,5 +244,5 @@ function modifyItem(id, description) {
 
 function validateDescription(description) {
   let indexOfDescription = todoItems.findIndex(value => value.description === description);
-  return indexOfDescription === notFoundfIndex;
+  return indexOfDescription === notFoundIndex;
 }
