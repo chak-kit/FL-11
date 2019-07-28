@@ -30,29 +30,7 @@ saveBtn.addEventListener('click', () => {
   }
 });
 
-function warning(errorMessage) {
-  let message = document.createElement('div');
-  message.innerHTML = `Error! <br> ${errorMessage}`;
-  message.classList.add('message');
-  document.body.appendChild(message);
-  let span = document.createElement('span');
-  span.innerHTML = '&#9747';
-  message.appendChild(span);
-  if (isChrome) {
-    message.style.left = '10px';
-  } else {
-    message.style.right = '10px'
-  }
-  span.onclick = function () {
-    message.style.display = 'none'
-  };
-  setTimeout(function () {
-    message.style.display = 'none'
-  }, timeOut);
-}
-
 let todoItems = [];
-
 let id;
 let description = '';
 
@@ -120,7 +98,7 @@ function mainPage() {
           }
         }
 
-        localStorage.setItem('todoItems', JSON.stringify(todoItems));
+        saveItems();
         mainPage();
       });
 
@@ -139,7 +117,7 @@ function mainPage() {
         id = task.id;
         let indexToDelete = todoItems.findIndex(value => value.id === id);
         todoItems.splice(indexToDelete, 1);
-        localStorage.setItem('todoItems', JSON.stringify(todoItems));
+        saveItems();
         id = null;
 
         mainPage();
@@ -158,10 +136,6 @@ function mainPage() {
     empty.innerText = 'TODO is empty';
     rootNode.appendChild(empty);
   }
-}
-
-function moveElement(arr, fromIndex, toIndex) {
-  arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0]);
 }
 
 function addPage() {
@@ -194,11 +168,10 @@ function modifyPage() {
   heading.innerText = 'Modify item';
   rootNode.appendChild(heading);
   input.value = description;
-
   rootNode.appendChild(input);
 
-  const list = document.createElement('ul'),
-    listItem = document.createElement('li');
+  const list = document.createElement('ul');
+  const listItem = document.createElement('li');
   listItem.appendChild(cancelBtn);
   listItem.appendChild(saveBtn);
   list.appendChild(listItem);
@@ -221,28 +194,54 @@ function addItem(description) {
   let item = {description, id: itemID, isDone: false};
   todoItems.push(item);
 
-
   let currentIndex = todoItems.length - 1;
   let firstDoneIndex = todoItems.findIndex(value => value.isDone);
+
   //no sense to move, element is already in the right position
   if (firstDoneIndex !== notFoundIndex && firstDoneIndex < currentIndex) {
     moveElement(todoItems, currentIndex, firstDoneIndex);
   }
 
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
-
-  return todoItems;
+  saveItems();
 }
 
 function modifyItem(id, description) {
   let indexToModify = todoItems.findIndex(value => value.id === id);
   todoItems[indexToModify].description = description;
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
+  saveItems();
+}
 
-  return todoItems;
+// Move element into new position of array
+function moveElement(arr, fromIndex, toIndex) {
+  arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0]);
 }
 
 function validateDescription(description) {
   let indexOfDescription = todoItems.findIndex(value => value.description === description);
   return indexOfDescription === notFoundIndex;
+}
+
+function warning(errorMessage) {
+  let message = document.createElement('div');
+  message.innerHTML = `Error! <br> ${errorMessage}`;
+  message.classList.add('message');
+  document.body.appendChild(message);
+  let span = document.createElement('span');
+  span.innerHTML = '&#9747';
+  message.appendChild(span);
+  if (isChrome) {
+    message.style.left = '10px';
+  } else {
+    message.style.right = '10px'
+  }
+  span.onclick = function () {
+    message.style.display = 'none'
+  };
+  setTimeout(function () {
+    message.style.display = 'none'
+  }, timeOut);
+}
+
+function saveItems() {
+  localStorage.setItem('todoItems', JSON.stringify(todoItems));
 }
